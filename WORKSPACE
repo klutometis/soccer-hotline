@@ -8,11 +8,14 @@ git_repository(
 )
 
 git_repository(
-    name = "curl",
-    remote = "https://github.com/curl/curl.git",
-    branch = "master",
-    build_file = "//third_party:curl.BUILD",
+    name = "rules_foreign_cc",
+    remote = "https://github.com/bazelbuild/rules_foreign_cc.git",
+    branch = "main",
 )
+
+load("@rules_foreign_cc//foreign_cc:repositories.bzl", "rules_foreign_cc_dependencies")
+
+rules_foreign_cc_dependencies()
 
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
